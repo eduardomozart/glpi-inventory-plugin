@@ -550,7 +550,20 @@ class PluginGlpiinventoryDeployPackage extends CommonDBTM
         foreach ($subtypes as $subtype => $label) {
             echo "<tr>";
             echo "<th id='th_title_{$subtype}_$rand'>";
-            echo "<img src='" . Plugin::getWebDir('glpiinventory') . "/pics/$subtype.png' />";
+            switch ($subtype) {
+                case 'check':
+                    echo "<i class='ti ti-check' style='font-size: 32px; vertical-align: middle;'></i>";
+                    break;
+                case 'file':
+                    echo "<i class='ti ti-files' style='font-size: 32px; vertical-align: middle;'></i>";
+                    break;
+                case 'action':
+                    echo "<i class='ti ti-stack-2' style='font-size: 32px; vertical-align: middle;'></i>";
+                    break;
+                case 'userinteraction':
+                    echo "<i class='ti ti-message-circle-exclamation' style='font-size: 32px; vertical-align: middle;'></i>";
+                    break;
+            }
             echo "&nbsp;" . __($label, 'glpiinventory');
             if ($canedit) {
                 $this->plusButtonSubtype($this->getID(), $subtype, $rand);
@@ -630,12 +643,10 @@ class PluginGlpiinventoryDeployPackage extends CommonDBTM
 
         if ($this->can($id, UPDATE)) {
             echo "&nbsp;";
-            echo "<img id='plus_{$subtype}s_block{$rand}'";
+            echo "<i id='plus_{$subtype}s_block{$rand}'";
             echo " onclick=\"new_subtype('{$subtype}', {$id}, {$rand})\" ";
             echo  " title='" . __('Add') . "' alt='" . __('Add') . "' ";
-            echo  " class='pointer' src='" .
-               $CFG_GLPI["root_doc"] .
-               "/pics/add_dropdown.png' /> ";
+            echo  " class='pointer ti ti-circle-plus' style='font-size: 11px;' ";
         }
     }
 
