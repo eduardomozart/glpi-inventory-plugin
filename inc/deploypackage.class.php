@@ -552,16 +552,16 @@ class PluginGlpiinventoryDeployPackage extends CommonDBTM
             echo "<th id='th_title_{$subtype}_$rand'>";
             switch ($subtype) {
                 case 'check':
-                    echo "<i class='ti ti-check' style='font-size: 32px; vertical-align: middle;'></i>";
+                    echo "<i class='package_action ti ti-check'></i>";
                     break;
                 case 'file':
-                    echo "<i class='ti ti-files' style='font-size: 32px; vertical-align: middle;'></i>";
+                    echo "<i class='package_action ti ti-files'></i>";
                     break;
                 case 'action':
-                    echo "<i class='ti ti-stack-2' style='font-size: 32px; vertical-align: middle;'></i>";
+                    echo "<i class='package_action ti ti-stack-2'></i>";
                     break;
                 case 'userinteraction':
-                    echo "<i class='ti ti-message-circle-exclamation' style='font-size: 32px; vertical-align: middle;'></i>";
+                    echo "<i class='package_action ti ti-message-circle-exclamation'></i>";
                     break;
             }
             echo "&nbsp;" . __($label, 'glpiinventory');
