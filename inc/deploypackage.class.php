@@ -2272,4 +2272,10 @@ class PluginGlpiinventoryDeployPackage extends CommonDBTM
         }
         return $params;
     }
+
+
+    public static function getIcon()
+    {
+        return "ti ti-package";
+    }
 }
